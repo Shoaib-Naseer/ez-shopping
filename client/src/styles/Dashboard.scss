@@ -1,0 +1,229 @@
+@import './Pallette.scss';
+@import './Mixins.scss';
+
+.dashboard {
+    width: 100%;
+    padding: $p;
+    padding-bottom: $p-2;
+    .container {
+        .title {
+            margin-bottom: $p-1;
+            h1 {
+                font-size: $f-xl;
+                font-weight: 600;
+                text-align: left;
+            }
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            .stat {
+                padding: 1.5rem 1.25rem;
+                background-color: $background_1;
+                box-shadow: $shadow-7;
+                border-radius: 0.75rem;
+                @include flex_btw;
+                flex-direction: row-reverse;
+                gap: 1rem;
+                .icon {
+                    .icon_circle {
+                        width: 55px;
+                        height: 55px;
+                        border-radius: 50%;
+                        @include flex_center;
+                        svg {
+                            fill: $white;
+                        }
+                    }
+                    .sales {
+                        background-color: $green;
+                    }
+                    .orders_stat {
+                        background-color: $salmon;
+                    }
+                    .products {
+                        background-color: $sea-blue;
+                    }
+                }
+                .stat_info {
+                    text-align: left;
+                    font-family: $family-2;
+                    h2 {
+                        font-size: $f-sm;
+                        font-weight: 500;
+                        color: $primary-text-3;
+                        margin-bottom: 0.5rem;
+                    }
+                    h3 {
+                        font-size: $f-lg;
+                        font-weight: 600;
+                    }
+                }
+            }
+            
+        }
+        .charts {
+            width: 100%;
+            margin-top: $m-2;
+            .charts_container {
+                background-color: $background_1;
+                border-radius: 4px;
+                box-shadow: $shadow-3;
+                padding: $p;
+                @include flex_left;
+                .contain {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    h2 {
+                        font-weight: 600;
+                        font-size: $f-l;
+                        margin-bottom: $m-2;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        
+        .orders {
+            width: 100%;
+            margin-top: $m-2;
+            background-color: $background_1;
+            border-radius: 4px;
+            box-shadow: $shadow-3;
+            padding: $p;
+            h2 {
+                font-size: $f-l;
+                font-weight: 600;
+                text-align: left;
+                margin-bottom: $m;
+            }
+            .container {
+                width: 100%;
+                overflow-x: auto; 
+                .overflow {
+                    min-width: 950px;
+                    a {
+                        width: 100%;
+                        .user_order {
+                            width: 100%;
+                            display: grid;
+                            align-content: center;
+                            grid-template-columns: 2.3fr 1.2fr 1.5fr 1fr 1fr 0.8fr 0.3fr;
+                            gap: 1.5rem;
+                            border-radius: 5px;
+                            background-color: transparent;
+                            box-shadow: none;
+                            border: solid 1px #efefef;
+                            padding: $p $p-s;
+                            margin-bottom: $m;
+                            div {
+                                h3 {
+                                    font-size: $f-s;
+                                    font-weight: 400;
+                                    text-align: left;
+                                }
+                                a {
+                                    svg {
+                                        fill: $pink;
+                                    }
+                                }
+                            }
+                            .order_total {
+                                display: flex;
+                                justify-content: center;
+                            }
+                            .order_status {
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                span {
+                                    width: 8px;
+                                    height: 8px;
+                                    border-radius: 50%;
+                                    margin-right: $m-s;
+                                }
+                            }
+                            .order_name {
+                                display: flex;
+                                justify-content: flex-start;
+                                h3 {
+                                    margin-right: 0.3rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // .container::-webkit-scrollbar {
+            //     width: 0;
+            // }
+        }
+    }
+}
+
+
+
+@media (min-width: 800px) {
+    .dashboard {
+        .container {
+            .title {
+                h1 {
+                    font-size: $f-xxl;
+                }
+            }
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .charts {
+                .charts_container {
+                    .contain {
+                        h2 {
+                            font-size: $f-xl;
+                        }
+                    }
+                }
+            }
+            .orders {
+                padding: $p-2;
+                h2 {
+                    font-size: $f-xl;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .dashboard {
+        padding: $p-1 $p-2;
+        .container {
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .charts {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+            }
+            .orders {
+                .container {
+                    .overflow {
+                        a {
+                            .user_order {
+                                padding: $p;
+                                &:hover {
+                                    border-color: #ccc;
+                                }
+                                div {
+                                    h3 {
+                                        font-size: $f-sm;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

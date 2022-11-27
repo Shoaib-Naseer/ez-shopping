@@ -1,0 +1,37 @@
+{
+  "name": "Final Year Project",
+  "version": "1.0.0",
+  "description": "E-commerce With Recommendation System and Image Searching",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "server": "nodemon server/server.js",
+    "populateProducts": "node server/seedProducts.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [
+    "E-COMMERCE",
+    "REACT",
+    "EXPRESS",
+    "PAYSTACK"
+  ],
+  "author": "Dayo-ajobiewe Hope",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.1",
+    "cloudinary": "^1.27.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "express-static-gzip": "^2.1.6",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.4",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,170 @@
+@import './Pallette.scss';
+
+.footer {
+    width: 100%;
+    padding: 3rem 1rem;
+    padding-bottom: 5rem;
+    background-color: $background_dark;
+    color: $secondary-text-3;
+    .footer_container {
+        max-width: 1250px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        .footer_about {
+            text-align: left;
+            h2 {
+                font-size: $f-xl;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: $pink;
+                font-family: 'Poppins', sans-serif;
+            }
+            p {
+                font-size: $f-sm;
+                line-height: 20px;
+            }
+        }
+        .footer_categories,
+        .footer_customer_care {
+            h2 {
+                        text-align: left;
+                        font-size: $f-lg;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                        color: $secondary-text;
+                        font-family: 'Poppins', sans-serif;
+            }
+            div {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        a {
+                            margin-bottom: 0.5rem;
+                            position: relative;
+                            display: inline-block;
+                            font-size: 15px;
+                            padding-left: 20px;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 4px;
+                                left: 0;
+                                width: 7px;
+                                height: 7px;
+                                background-color: $pink;
+                                border-radius: 50%;
+                            }
+
+                        }
+            }
+        }
+        .footer_contact {
+                    h2 {
+                        text-align: left;
+                        font-size: $f-lg;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                        color: $secondary-text;
+                        font-family: 'Poppins', sans-serif;
+                    }
+                    .footer_contact_methods {
+                        .contact_method {
+                            width: 100%;
+                            margin-bottom: 0.7rem;
+                            display: flex;
+                            justify-content: flex-start;
+                            span {
+                                color: $pink;
+                                margin-right: 0.5rem;
+                                font-size: 16px;
+                                font-weight: 700;
+                            }
+                            p {
+                                text-align: left;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+        }
+    }
+}
+
+
+
+@media (min-width: 600px) {
+    .footer {
+        padding: 3rem 1.5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .footer {
+        padding: 3rem 1.5rem;
+        .footer_container {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            .footer_categories,
+            .footer_customer_care {
+                div {
+                    a {
+                        padding-left: 27px;
+                    }
+                }
+            }
+            .footer_contact {
+                .footer_contact_methods {
+                    .contact_method {
+                        span {
+                            margin-right: 1rem;
+                        }
+                    }
+                    .footer_categories,
+                    .footer_customer_care {
+                        a {
+                            transition: 0.4s linear;
+                            &:hover {
+                                color: $pink;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: 950px) {
+    .footer {
+        padding: 3rem;
+        .footer_container {
+            grid-template-columns: 1.5fr 1fr 1fr;
+            .footer_about {
+                h2 {
+                    font-size: $f-xxl;
+                }
+            }
+            .footer_categories,
+            .footer_customer_care {
+                h2 {
+                    font-size: $f-xl;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .footer {
+        .footer_container {
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        }
+    }
+}

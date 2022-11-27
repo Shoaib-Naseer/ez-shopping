@@ -1,0 +1,79 @@
+@import './Pallette.scss';
+@import './Mixins.scss';
+
+.traits {
+    width: 100%;
+    padding: $p-3 0;
+        .traits_items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            .trait {
+                @include flex_column;
+                padding: $p;
+                background-color: $background_2;
+                box-shadow: $shadow-6;
+                border-radius: 6px;
+                .trait_icon {
+                    margin-bottom: $m-s;
+                    .bubble {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: $pink-shade;
+                        @include flex_center;
+                        svg {
+                            fill: $pink;
+                        }
+                    }
+                    
+                }
+                .trait_info {
+                    h3 {
+                        font-size: $f-l;
+                        font-weight: 500;
+                        margin-bottom: $m-s;
+                    }
+                    p {
+                        color: $primary-text-3;
+                        font-weight: 400;
+                        font-size: $f-s;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+}
+
+
+
+@media (min-width: 700px) {
+    .traits {
+        .traits_items {
+            grid-template-columns: repeat(2, 1fr);
+            .trait {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: $p-1 $p;
+                .trait_icon {
+                    margin-bottom: 0;
+                    margin-right: $m-1;
+                }
+                .trait_info {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .traits {
+        .traits_items {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+    }
+}

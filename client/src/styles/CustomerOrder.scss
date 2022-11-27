@@ -1,0 +1,642 @@
+@import "./Pallette.scss";
+@import "./Mixins.scss";
+
+.user_order, .order {
+    width: 100%;
+    .order_container {
+        .order_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: $p 0;
+            .order_title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                svg {
+                    margin-right: $m-s;
+                    fill: $pink;
+                }
+                h1 {
+                    font-size: $f-xl;
+                    font-weight: 600;
+                }
+            }
+            .mb_btn {
+                button {
+                    background-color: transparent;
+                    svg {
+                        fill: $pink;
+                    }
+                }
+            }
+        }
+        
+        .order_key_info {
+            background-color: $background_1;
+            border-radius: 5px;
+            box-shadow: $shadow-3;
+            padding: 1rem;
+            margin-bottom: $m-2;
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: $m;
+                h2 {
+                    color: $primary-text-2;
+                    font-size: $f-s;
+                    font-weight: 400;
+                }
+                h3 {
+                    font-size: $f-s;
+                    font-weight: 400;
+                }
+            }
+            .status {
+                margin-bottom: 0;
+                .status_div {
+                    margin-bottom: 0;
+                    span {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        margin-right: $m-s;
+                    }
+                }
+            }
+        }
+
+        .order_items {
+            margin-bottom: $m-2;
+            h2 {
+                text-align: left;
+                font-size: $f-sm;
+                text-transform: uppercase;
+                font-weight: 400;
+                margin-bottom: $m;
+            }
+            .items_container {
+                padding: $p;
+                background-color: $background_1;
+                border-radius: 5px;
+                box-shadow: $shadow-3;
+                .order_item {
+                    margin-bottom: $m-1;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: max-content 2fr;
+                    gap: 0.5rem 1rem;
+                    .order_item_img {
+                        @include flex_center;
+                        img {
+                            width: 70px;
+                            height: 70px;
+                            object-fit: contain;
+                        }
+                    }
+                    .order_item_info {
+                        text-align: left;
+                        h2 {
+                            font-size: $f-s;
+                            text-transform: capitalize;
+                            font-weight: 400;
+                            margin-bottom: $m-s;
+                        }
+                        h3 {
+                            font-size: $f-s;
+                            font-weight: 400;
+                            margin-bottom: $m-s;
+                            span {
+                                margin-left: $m;
+                            }
+                        }
+                        h4 {
+                            font-size: $f-s;
+                            font-weight: 400;
+                            margin-bottom: $m;
+                            span {
+                                margin-left: $m-s;
+                            }
+                        }
+                        a {
+                            width: 100%;
+                            background-color: $pink_shade;
+                            color: $pink;
+                            padding: 0.4rem 0.7rem;
+                            border-radius: 5px;
+                            font-size: $f-s;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .order_summary {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            .order_shipping {
+                h2 {
+                    font-size: $f-sm;
+                    text-align: left;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    margin-bottom: $m;
+                }
+                .order_shipping_info {
+                    background-color: $background_1;
+                    box-shadow: $shadow-3;
+                    border-radius: 5px;
+                    padding: 1.5rem 1rem;
+                    .method {
+                        margin-bottom: $m-1;
+                        text-align: left;
+                        h2 {
+                            font-weight: 400;
+                            font-size: $f-md;
+                            margin-bottom: $m-s;
+                            text-transform: capitalize;
+                            background-color: $background;
+                            padding: $p-s;
+                        }
+                        h3 {
+                            font-weight: 400;
+                            font-size: $f-sm;
+                            color: $primary-text-3;
+                            padding-left: $p-s;
+                        }
+                    }
+                    .delivery_address {
+                        padding: 0;
+                        h3 {
+                            font-weight: 400;
+                            font-size: $f-md;
+                            margin-bottom: $m;
+                            text-transform: capitalize;
+                            text-align: left;
+                            background-color: $background;
+                            padding: $p-s;
+                        }
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            padding-left: $p-s;
+                            margin-bottom: $m;
+                            h2 {
+                                color: $primary-text-2;
+                                font-weight: 400;
+                                font-size: $f-s;
+                                margin-right: $m;
+                                margin-bottom: 0;
+                                text-transform: capitalize;
+                            }
+                            h3 {
+                                font-weight: 400;
+                                font-size: $f-s;
+                                background-color: transparent;
+                                padding: 0;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_payment {
+                h2 {
+                    font-size: $f-sm;
+                    text-align: left;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    margin-bottom: $m;
+                }
+                .order_payment_info {
+                    background-color: $background_1;
+                    box-shadow: $shadow-3;
+                    border-radius: 5px;
+                    padding: 1.5rem 1rem;
+                    .method {
+                        margin-bottom: $m-1;
+                        text-align: left;
+                        h2 {
+                            font-weight: 400;
+                            font-size: $f-md;
+                            margin-bottom: $m-s;
+                            text-transform: capitalize;
+                            background-color: $background;
+                            padding: $p-s;
+                        }
+                        h3 {
+                            font-weight: 400;
+                            font-size: $f-sm;
+                            color: $primary-text-3;
+                            padding-left: $p-s;
+                        }
+                    }
+                    .details {
+                        padding: 0;
+                        h3 {
+                            font-weight: 400;
+                            font-size: $f-md;
+                            margin-bottom: $m;
+                            text-transform: capitalize;
+                            text-align: left;
+                            background-color: $background;
+                            padding: $p-s;
+                        }
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            padding-left: $p-s;
+                            margin-bottom: $m;
+                            h4 {
+                                color: $primary-text-2;
+                                font-weight: 400;
+                                font-size: $f-s;
+                                margin-right: $m;
+                                text-transform: capitalize;
+                            }
+                            h5 {
+                                font-weight: 400;
+                                font-size: $f-s;
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.order {
+    padding: $p;
+    padding-bottom: $p-2;
+    .order_container {
+        .order_header {
+            flex-direction: column;
+            align-items: flex-start;
+            .update {
+                position: relative;
+                @include flex_left;
+                margin-top: $m-s;
+                padding: $p-s;
+                h3 {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-size: $f-sm;
+                    font-weight: 400;
+                    span {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        border: solid 1px $border;
+                        border-radius: 5px;
+                        padding: 0.1rem 0.2rem;
+                        font-size: $f-s;
+                        margin-left: $m-s;
+                        text-transform: capitalize;
+                        button {
+                            margin-left: $m-s;
+                            transform: rotate(0);
+                            transition: 0.3s linear;
+                        }
+                        .rotate {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+                .options {
+                    background-color: $background_1;
+                    border-radius: 5px;
+                    box-shadow: $shadow-5;
+                    position: absolute;
+                    top: 40px;
+                    left: 0;
+                    width: 200px;
+                    button {
+                        width: 100%;
+                        padding: 0.7rem 1rem;
+                        font-size: $f-s;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .order_key_info {
+            .delivery {
+                margin-top: $m;
+            }
+        }
+        .customer {
+            background-color: $background_1;
+            border-radius: 5px;
+            box-shadow: $shadow-3;
+            padding: $p;
+            margin-bottom: $m-2;
+            .container {
+                h2 {
+                    font-weight: 400;
+                    font-size: $f-sm;
+                    margin-bottom: $m-s;
+                    text-transform: uppercase;
+                    text-align: left;
+                    background-color: $background;
+                    padding: $p-s;
+                }
+                .customer_info {
+                    @include flex_column_left;
+                    padding: $p-s;
+                    h3 {
+                        font-weight: 400;
+                        font-size: $f-s;
+                        margin-bottom: 0.75rem;
+                        text-transform: capitalize;
+                        text-align: left;
+                        span {
+                            margin-right: $m-s;
+                        }
+                    }
+                    .email {
+                        text-transform: lowercase;
+                    }
+                    a {
+                        color: $pink;
+                        text-decoration: underline 1px $pink;
+                        text-transform: uppercase;
+                        font-size: $f-s;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .order_items {
+            .items_container {
+                .order_item {
+                    .order_item_info {
+                        a {
+                            display: none;
+                        }
+                    }
+                }
+            }       
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    .order {
+        .order_container {
+            .order_header {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    .user_order {
+        .order_container {
+            .order_header {
+                .order_title {
+                    h1 {
+                        font-size: $f-xl;
+                    }
+                }
+                .mb_btn {
+                    button {
+                        background-color: transparent;
+                        svg {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+            
+            .order_key_info {
+                div {
+                    h2 {
+                        font-size: $f-sm;
+                    }
+                    h3 {
+                        font-size: $f-sm;
+                    }
+                }
+            }
+    
+            .order_items {
+                h2 {
+                    font-size: $f-md;
+                }
+                .items_container {
+                    .order_item {
+                        margin-bottom: $m-1;
+                        gap: 2rem;
+                        .order_item_img {
+                            justify-content: center;
+                            img {
+                                width: 85px;
+                                height: 80px;
+                            }
+                        }
+                        .order_item_info {
+                            h2 {
+                                font-size: $f-sm;
+                            }
+                            h3 {
+                                font-size: $f-sm;
+                            }
+                            h4 {
+                                font-size: $f-sm;
+                            }
+                            a {
+                                width: 120px;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .order_summary {
+                .order_shipping {
+                    .order_shipping_info {
+                        .delivery_address {
+                            div {
+                                h2 {
+                                    font-size: $f-sm;
+                                }
+                                h3 {
+                                    font-size: $f-sm;
+                                }
+                            }
+                        }
+                    }
+                }
+                .order_payment {
+                    .order_payment_info {
+                        .details {
+                            div {
+                                h4 {
+                                    font-size: $f-sm;                                }
+                                h5 {
+                                    font-size: $f-sm;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+@media (min-width: 800px) {
+    .user_order {
+        .order_container {
+            .order_header {
+                .mb_btn {
+                    display: none;
+                }
+            }
+        }
+    }
+    .order {
+        .order_container {
+            .order_header {
+                .update {
+                    h3 {
+                        span {
+                            padding: 0.2rem 0.4rem;
+                        }
+                    }
+                    .options {
+                        button {
+                            &:hover {
+                                background-color: $background;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .user_order {
+        .order_container {
+            .order_header {
+                .order_title {
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    h1 {
+                        font-size: $f-xxl;
+                    }
+                }
+            }
+            
+            .order_key_info {
+                div {
+                    h2 {
+                        font-size: $f-md;
+                    }
+                    h3 {
+                        font-size: $f-md;
+                    }
+                }
+            }
+    
+            .order_items {
+                .items_container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                    .order_item {
+                        grid-template-columns: 1fr 4fr;
+                        gap: 1rem;
+                        .order_item_info {
+                            h2 {
+                                font-size: $f-md;
+                            }
+                            h3 {
+                                font-size: $f-md;
+                            }
+                            h4 {
+                                font-size: $f-md;
+                            }
+                            a {
+                                font-size: $f-s;
+                                padding: 0.6rem 0.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .order_summary {
+                grid-template-columns: 1fr 1fr;
+                .order_shipping {
+                    .order_shipping_info {
+                        .delivery_address {
+                            div {
+                                h2 {
+                                    font-size: $f-sm;
+                                }
+                                h3 {
+                                    font-size: $f-sm;
+                                }
+                            }
+                        }
+                    }
+                }
+                .order_payment {
+                    .order_payment_info {
+                        .details {
+                            div {
+                                h4 {
+                                    font-size: $f-sm;                                }
+                                h5 {
+                                    font-size: $f-sm;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .order {
+        padding: $p $p-2 $p-2;
+        .key_info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+        .order_container {
+            .customer {
+                .container {
+                    .customer_info {
+                        h3 {
+                            font-size: $f-sm;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
