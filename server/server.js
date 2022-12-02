@@ -5,6 +5,7 @@ const path = require('path')
 const express = require('express')
 const expressStaticGzip = require('express-static-gzip')
 const bodyParser = require('body-parser')
+const payment = require('./routes/paymentRoute')
 
 const connectDB = require('./config/connectDB')
 connectDB()
@@ -27,6 +28,7 @@ app.use('/api/products', productsRoute)
 app.use('/api/orders', ordersRoute)
 app.use('/api/admin', adminRoute)
 app.use('/api/seller', sellerRoute)
+app.use('/api/payment', payment)
 
 app.get('/api/config/paystack', (req, res) =>
     res.send(process.env.PAYSTACK_PUBLIC)

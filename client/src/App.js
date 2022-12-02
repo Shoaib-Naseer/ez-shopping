@@ -6,6 +6,8 @@ import {
     Redirect,
 } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 //Routes
 import PrivateRoute from './components/Routes/PrivateRoute'
@@ -68,6 +70,7 @@ function App() {
                                 path="/search/:keyword"
                                 component={Products}
                             />
+
                             <Route
                                 path="/search/:keyword/page/:pageNumber"
                                 component={Products}

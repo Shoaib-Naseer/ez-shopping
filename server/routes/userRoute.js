@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { isAuthenticated, isAdmin } = require("../middleware/auth")
+const { isAuthenticated, isAdmin , isSeller } = require("../middleware/auth")
 const { 
     registerUser,
     loginUser,

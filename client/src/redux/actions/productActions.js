@@ -167,7 +167,6 @@ export const postProductReview = (id, review) => async (dispatch, getState) => {
 export const createProduct = (details) => async (dispatch, getState) => {
     try {
         dispatch({ type: actionTypes.NEW_PRODUCT_REQUEST })
-        console.log(details.get('sizes'))
         const {
             loginUser: { userInfo },
         } = getState()

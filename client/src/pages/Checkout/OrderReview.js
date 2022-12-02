@@ -20,26 +20,30 @@ import Layout from '../../components/Layout/Layout'
 import '../../styles/Checkout.scss'
 
 const OrderReview = () => {
-
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(confirmOrderItems())
-    }, [dispatch])   
+    }, [dispatch])
 
-    const { orderItems, loading, error } = useSelector((state) => state.orderItems)
+    const { orderItems, loading, error } = useSelector(
+        (state) => state.orderItems
+    )
     const changedItems = orderItems.filter((item) => item.previousCount)
 
     const totalItems = () => {
-        let total = orderItems.reduce((qty, item) => Number(item.qty) + qty, 0);
-        return total;
+        let total = orderItems.reduce((qty, item) => Number(item.qty) + qty, 0)
+        return total
     }
 
     const shipping = 1000
 
     const totalItemsPrice = () => {
-        let total = orderItems.reduce((price, item) => (item.price * item.qty) + price, 0)
-        return total;
+        let total = orderItems.reduce(
+            (price, item) => item.price * item.qty + price,
+            0
+        )
+        return total
     }
 
     const vat = () => {
@@ -49,21 +53,31 @@ const OrderReview = () => {
 
     const totalPrice = () => {
         let total = totalItemsPrice() + shipping + vat()
-        return total;
+        return total
     }
 
     const handleAdd = (item, unit) => {
         dispatch(updateQty(item, unit))
     }
-     
+
     if (loading) {
-        return <Layout> <main className="order_review"> <Loader /> </main></Layout>
+        return (
+            <Layout>
+                {' '}
+                <main className="order_review">
+                    {' '}
+                    <Loader />{' '}
+                </main>
+            </Layout>
+        )
     }
 
     if (error) {
         return (
             <Layout>
-                <main className="order_review"><h1>{error}</h1></main>
+                <main className="order_review">
+                    <h1>{error}</h1>
+                </main>
             </Layout>
         )
     }
@@ -78,11 +92,19 @@ const OrderReview = () => {
                             {changedItems?.map((item) => (
                                 <h2>{`<b>${item.name}</b> of size <b>${item.size}</b> has only <b>${item.qty}</b> pieces left. Quantity has been adjusted in your cart`}</h2>
                             ))}
-                            {changedItems.length === 0 && <h1>All items are valid</h1>}
+                            {changedItems.length === 0 && (
+                                <h1>All items are valid</h1>
+                            )}
                         </div>
 
                         <div className="order_items">
-                            {orderItems.map((item, i) => <Cartitem key={i} item={item} updateQty={handleAdd} />)}
+                            {orderItems.map((item, i) => (
+                                <Cartitem
+                                    key={i}
+                                    item={item}
+                                    updateQty={handleAdd}
+                                />
+                            ))}
                         </div>
                     </section>
 
@@ -106,15 +128,26 @@ const OrderReview = () => {
                             </div>
                             <div className="order_summary_item">
                                 <h2>Total Price</h2>
-                                <h3>₦{totalPrice()}</h3>
+                                <h3>Rs{totalPrice()}</h3>
                             </div>
-                            <Grid container rowSpacing={2} columnSpacing={6} sx={{ mt: 1, '& button': { width: "100%" } }} >
+                            <Grid
+                                container
+                                rowSpacing={2}
+                                columnSpacing={6}
+                                sx={{ mt: 1, '& button': { width: '100%' } }}
+                            >
                                 <Grid item xs={12} sm={6} md={12}>
-                                    <Button size="large" variant="outlined"><Link to="/checkout">Back</Link></Button>
+                                    <Button size="large" variant="outlined">
+                                        <Link to="/checkout">Back</Link>
+                                    </Button>
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={12}>
-                                    <Button size="large" variant="contained"><Link to="/checkout/payment">Proceed to payment</Link></Button>
-                                </Grid>    
+                                    <Button size="large" variant="contained">
+                                        <Link to="/checkout/payment">
+                                            Proceed to payment
+                                        </Link>
+                                    </Button>
+                                </Grid>
                             </Grid>
                         </div>
                     </section>

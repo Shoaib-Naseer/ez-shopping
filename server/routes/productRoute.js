@@ -11,6 +11,7 @@ const {
     editProduct,
     createProduct,
     deleteProduct,
+    imageSearch,
 } = require('../controllers/productsController')
 
 router.get('/category', getCategoryProducts)
@@ -20,18 +21,13 @@ router.get('/gender', getGenderProducts)
 router.get('/top', getTopProducts)
 
 router.get('/', getProducts)
+router.post('/imageSearch', imageSearch)
 
 router.post('/', isAuthenticated, isSeller, upload.any('images'), createProduct)
 
 router.get('/:id', getProduct)
 
-router.put(
-    '/:id',
-    isAuthenticated,
-    isAdmin || isSeller,
-    upload.any('images'),
-    editProduct
-)
+router.put('/:id', isAuthenticated, isSeller, upload.any('images'), editProduct)
 
 router.delete('/:id', isAuthenticated, isAdmin || isSeller, deleteProduct)
 

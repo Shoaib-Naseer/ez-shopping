@@ -167,14 +167,15 @@ const AddProduct = ({ type }) => {
                     editFormData.append('images', newImages[i])
                 }
             }
-            editFormData.append('name', editName)
-            editFormData.append('description', editDescription)
-            editFormData.append('brand', editBrand)
-            editFormData.append('price', editPrice)
-            editFormData.append('sizes', editSizes)
-            editFormData.append('gender', editGender)
-            editFormData.append('category', editCategory)
-            editFormData.append('details', editDetails)
+            editFormData.set('name', editName)
+            editFormData.set('description', editDescription)
+            editFormData.set('brand', editBrand)
+            editFormData.set('price', editPrice)
+            editFormData.set('sizes', editSizes)
+            editFormData.set('gender', editGender)
+            editFormData.set('category', editCategory)
+            editFormData.set('details', editDetails)
+            console.log(editFormData)
 
             dispatch(updateProduct(id, editFormData))
         } catch (error) {

@@ -11,12 +11,29 @@ const getProducts = asyncHandler(async (req, res) => {
     const sort = sortKey ? { [sortKey]: sortValue } : { updatedAt: 'desc' }
     const keyword = req.query.keyword.toLowerCase()
         ? {
-              name: {
-                  $regex: req.query.keyword,
-                  $options: 'i',
-              },
+              $or: [
+                  {
+                      name: {
+                          $regex: req.query.keyword,
+                          $options: 'i',
+                      },
+                  },
+                  {
+                      category: {
+                          $regex: req.query.keyword,
+                          $options: 'i',
+                      },
+                  },
+                  {
+                      brand: {
+                          $regex: req.query.keyword,
+                          $options: 'i',
+                      },
+                  },
+              ],
           }
         : {}
+    console.log(keyword)
     const count = await Product.countDocuments({ ...keyword })
 
     const products = await Product.find({ ...keyword })
@@ -269,7 +286,7 @@ const editProduct = asyncHandler(async (req, res) => {
             res.status(500)
             throw new Error('Error updating product')
         } else {
-            res.json({ success: true })
+            res.status(201).json({ success: true })
         }
     })
 })
@@ -313,6 +330,19 @@ const addProductReview = asyncHandler(async (req, res) => {
     }
 })
 
+const imageSearch = asyncHandler(async (req, res) => {
+    try {
+        const public_ids = req.body.public_ids
+        console.log(public_ids)
+        const result = await Product.find({
+            'images.public_id': { $in: public_ids },
+        })
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = {
     getProducts,
     getCategoryProducts,
@@ -323,4 +353,5 @@ module.exports = {
     createProduct,
     editProduct,
     addProductReview,
+    imageSearch,
 }

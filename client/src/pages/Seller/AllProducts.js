@@ -12,7 +12,7 @@ import { DELETE_PRODUCT_RESET } from '../../redux/constants/productConstants'
 // COMPONENTS
 import ProductsTitle from '../../components/Admin/ProductsTitle'
 import Paginate from '../../components/Pagination/Paginate'
-import AdminProduct from '../../components/Seller/SellerProduct'
+import SellerProduct from '../../components/Seller/SellerProduct'
 import Loader from '../../components/Loader/Loader'
 
 // STYLES
@@ -162,7 +162,7 @@ const AllProducts = () => {
                 <section className="products_section">
                     <div className="products_box">
                         {products?.map((product) => (
-                            <AdminProduct
+                            <SellerProduct
                                 key={product._id}
                                 product={product}
                                 deleteItem={deleteProductItem}

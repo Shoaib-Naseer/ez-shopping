@@ -7,16 +7,17 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 import '../../styles/Nav.scss'
 
-const Nav = () => {
+import ImageSearch from './ImageSearch'
 
+const Nav = () => {
     const { cartItems } = useSelector((state) => state.cart)
     const history = useHistory()
 
     const handleSearch = (e) => {
         e.preventDefault()
 
-        if(e.target.search.value === "") return
-        
+        if (e.target.search.value === '') return
+
         const keyword = e.target.search.value.toLowerCase()
 
         history.push(`/search/${keyword}`)
@@ -24,16 +25,22 @@ const Nav = () => {
     }
 
     return (
-        <div className='header'>
+        <div className="header">
             <div className="header_container">
                 <div className="search_div">
                     <div className="header_logo hide">
-                        <Link to="/"><h2>Chavonn</h2></Link>
+                        <Link to="/">
+                            <h2>EZ-Shopping</h2>
+                        </Link>
                     </div>
                     <div className="search_bar">
                         <div className="search">
                             <form onSubmit={(e) => handleSearch(e)}>
-                                <input type="text" name="search" placeholder='Search by name, category or brand...' />
+                                <input
+                                    type="text"
+                                    name="search"
+                                    placeholder="Search by name, category or brand..."
+                                />
                                 <button type="submit">
                                     <SearchOutlinedIcon />
                                 </button>
@@ -48,15 +55,18 @@ const Nav = () => {
                             <Link to="/cart">
                                 <div className="header_cart">
                                     <ShoppingCartOutlinedIcon />
-                                    {cartItems.length > 0 && <span>{cartItems.length}</span>}
+                                    {cartItems.length > 0 && (
+                                        <span>{cartItems.length}</span>
+                                    )}
                                 </div>
                             </Link>
+                            <ImageSearch />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     )
-};
+}
 
-export default Nav;
+export default Nav

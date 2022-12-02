@@ -1,0 +1,39 @@
+const asyncHandler = require('express-async-handler')
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+
+exports.processPayment = asyncHandler(async (req, res) => {
+    const myPayment = await stripe.paymentIntents.create({
+        description: 'Software development services',
+        shipping: {
+            name: 'Jenny Rosen',
+            address: {
+                line1: '510 Townsend St',
+                postal_code: '98140',
+                city: 'San Francisco',
+                state: 'CA',
+                country: 'US',
+            },
+        },
+        amount: 1099,
+        currency: 'inr',
+        payment_method_types: ['card'],
+        // amount: 1000,
+        // currency: 'pkr',
+        // description: 'Software development services',
+        // name: 'Shoaib',
+        // address: 'comsats',
+        // automatic_payment_methods: {
+        //     enabled: true,
+        // },
+        // metadata: {
+        //     company: 'EZ-Shopping',
+        // },
+    })
+
+    console.log(req.body.amount)
+    console.log('payment done')
+    res.status(200).json({
+        success: true,
+        client_secret: myPayment.client_secret,
+    })
+})

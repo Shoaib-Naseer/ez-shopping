@@ -8,7 +8,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 // STYLES
 import '../../styles/AdminProduct.scss'
 
-const AdminProduct = ({ product, deleteItem }) => {
+const SellerProduct = ({ product, deleteItem }) => {
     return (
         <div className="admin_product">
             <div className="container">
@@ -31,7 +31,7 @@ const AdminProduct = ({ product, deleteItem }) => {
                             <DeleteOutlineOutlinedIcon />
                         </button>
                         <button className="add_btn">
-                            <Link to={`/admin/editproduct/${product._id}`}>
+                            <Link to={`/seller/editproduct/${product._id}`}>
                                 <EditOutlinedIcon />
                             </Link>
                         </button>
@@ -42,4 +42,4 @@ const AdminProduct = ({ product, deleteItem }) => {
     )
 }
 
-export default AdminProduct
+export default SellerProduct
